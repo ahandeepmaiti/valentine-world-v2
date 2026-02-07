@@ -17,3 +17,11 @@ button{background:#ff6fae;color:#fff;cursor:pointer}
 .center-img{position:absolute;width:90px;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
 .content-box{position:fixed;inset:0;background:rgba(255,230,240,.95);display:flex;align-items:center;justify-content:center}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.proposal-quote {
+  margin-top: 25px;
+  font-size: 1.1rem;
+  color: #b03060;
+  font-style: italic;
+  line-height: 1.6;
+  animation: fadeIn 2s ease;
+}
