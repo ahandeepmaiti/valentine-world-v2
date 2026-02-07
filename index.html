@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Just One Question 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/cursor.css">
+</head>
+<body class="pink-bg page-enter">
+<div class="card" id="loginCard">
+<h2>Before you enter…</h2>
+<p>What do you call me?</p>
+<input id="answer" placeholder="Type here">
+<button onclick="verify()">Enter</button>
+<p id="error"></p>
+</div>
+<div id="success" class="hidden"><h1>You just took my heart ❤️</h1></div>
+<script src="js/hearts.js"></script>
+<script>
+function verify(){
+const a=document.getElementById("answer").value.toLowerCase();
+if(a==="bb"){
+loginCard.style.display="none";
+success.classList.remove("hidden");
+setTimeout(()=>location.href="calendar.html",3000);
+}else{error.innerText="Try again 💭";}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+setInterval(()=>{const h=document.createElement("div");h.className="floating-heart";h.innerText="💗";h.style.left=Math.random()*100+"vw";h.style.animationDuration=6+Math.random()*6+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),12000)},900);

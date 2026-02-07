@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>You Are My World 🌍</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/cursor.css">
+</head>
+<body class="valentine-bg page-enter">
+<div class="nav">
+<button onclick="goBack()">💗 Back</button>
+<button onclick="goHome()">🏠 Home</button>
+</div>
+<div class="earth-box">
+<img src="assets/images/earth.png" class="earth">
+<img src="assets/images/her-photo.png" class="center-img">
+</div>
+<h1>You are my world 🌍💗</h1>
+<p>Every orbit leads back to you</p>
+<div class="grid">
+<div class="box" onclick="openSection('gift')">🎁 Gift</div>
+<div class="box" onclick="openSection('letter')">💌 Letter</div>
+<div class="box" onclick="openSection('memory')">📸 Memories</div>
+<div class="box" onclick="openSection('secret')">🔐 Secret</div>
+</div>
+<div id="content" class="hidden content-box">
+<button class="close" onclick="closeSection()">✖</button>
+<div id="contentInner"></div>
+</div>
+<script src="js/hearts.js"></script>
+<script>
+function openSection(type){
+const inner=document.getElementById("contentInner");
+if(type==="gift") inner.innerHTML="<h2>🎁 A Gift</h2><img src='assets/images/special.png' class='poster'>";
+if(type==="letter") inner.innerHTML="<h2>💌 A Letter</h2><p>You are my today, tomorrow and forever 💗</p>";
+if(type==="memory") inner.innerHTML="<h2>📸 Memories</h2><img src='assets/images/day7.jpg' class='poster'>";
+if(type==="secret") inner.innerHTML="<h2>🔐 Secret</h2><input id='magic'><button onclick='unlock()'>Unlock</button><img id='secretImg' src='assets/images/special.png' class='poster hidden'>";
+document.getElementById("content").classList.remove("hidden");
+}
+function closeSection(){document.getElementById("content").classList.add("hidden");}
+function unlock(){if(magic.value.toLowerCase()==="i love you") secretImg.classList.remove("hidden");}
+function goBack(){history.back();}
+function goHome(){location.href="calendar.html";}
+</script>
+</body>
+</html>

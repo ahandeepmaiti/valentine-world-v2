@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Valentine Week 💕</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/cursor.css">
+</head>
+<body class="pink-bg page-enter">
+<div class="nav">
+<button onclick="goBack()">💗 Back</button>
+<button onclick="goHome()">🏠 Home</button>
+</div>
+<h1>Valentine Week 💘</h1>
+<div class="grid">
+<div class="day" data-day="7">7 Feb</div>
+<div class="day" data-day="8">8 Feb</div>
+<div class="day" data-day="9">9 Feb</div>
+<div class="day" data-day="10">10 Feb</div>
+<div class="day" data-day="11">11 Feb</div>
+<div class="day" data-day="12">12 Feb</div>
+<div class="day" data-day="13">13 Feb</div>
+<div class="day" data-day="14">14 Feb ❤️</div>
+</div>
+<script src="js/hearts.js"></script>
+<script>
+const BUILDER_MODE = true;
+const today = new Date();
+const currentDay = BUILDER_MODE ? 14 : today.getDate();
+document.querySelectorAll(".day").forEach(x=>{
+const n=Number(x.dataset.day);
+if(currentDay>=n){
+x.style.cursor="pointer";
+x.onclick=()=>location.href=n===14?"valentine.html":`day.html?day=${n}`;
+}else{
+x.innerHTML+=" 🔒";
+x.style.opacity="0.5";
+}
+});
+function goBack(){history.back();}
+function goHome(){location.href="calendar.html";}
+</script>
+</body>
+</html>
