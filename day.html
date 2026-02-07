@@ -17,13 +17,80 @@
 <script src="js/hearts.js"></script>
 <script>
 const d = new URLSearchParams(location.search).get("day") || "7";
-poster.src = `assets/images/day${d}.jpg`;
 
-poster.onerror = () => {
-  poster.src = "assets/images/day7.jpg";
-};
-function goBack(){location.href="calendar.html";}
-function goHome(){location.href="calendar.html";}
+/* 💍 PROPOSE DAY – 8 FEB */
+if (d === "8") {
+  document.body.innerHTML = `
+    <div class="pink-bg page-enter">
+      <div class="nav">
+        <button onclick="goHome()">🏠 Home</button>
+      </div>
+
+      <h1>💍 Propose Day</h1>
+      <p>I have one question for you…</p>
+
+      <div class="proposal-box">
+        <button class="yes-btn" onclick="sayYes(event)">💖 Yes</button>
+        <button class="no-btn" id="noBtn">🙈 No</button>
+      </div>
+
+      <p id="tease" class="hidden tease-text">
+        Heyy… don’t be shy 😌
+      </p>
+    </div>
+  `;
+
+  document.getElementById("noBtn").addEventListener("mouseover", moveButton);
+
+} else {
+  /* NORMAL DAYS */
+  poster.src = `assets/images/day${d}.jpg`;
+
+  poster.onerror = () => {
+    poster.src = "assets/images/day7.jpg";
+  };
+}
+
+/* 😜 NO BUTTON RUNS AWAY */
+function moveButton() {
+  const btn = document.getElementById("noBtn");
+  const tease = document.getElementById("tease");
+
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
+
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+  tease.classList.remove("hidden");
+}
+
+/* 💓 HEART BURST + REDIRECT */
+function heartBurst(x, y) {
+  for (let i = 0; i < 18; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart-burst";
+    heart.innerText = "💓";
+
+    heart.style.left = x + "px";
+    heart.style.top = y + "px";
+    heart.style.setProperty("--x", (Math.random() * 200 - 100) + "px");
+    heart.style.setProperty("--y", (Math.random() * 200 - 100) + "px");
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1200);
+  }
+}
+
+function sayYes(event) {
+  const rect = event.target.getBoundingClientRect();
+  heartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+  setTimeout(() => {
+    location.href = "valentine.html";
+  }, 1800);
+}
+
+function goBack(){ location.href="calendar.html"; }
+function goHome(){ location.href="calendar.html"; }
 </script>
 </body>
 </html>
